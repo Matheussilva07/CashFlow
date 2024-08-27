@@ -1,9 +1,6 @@
 ﻿using CashFlow.Application.useCases.Expenses.Register;
 using CashFlow.Communication.Requests;
-using CashFlow.Communication.Responses;
-using CashFlow.Exception.ExceptionsBase;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Cryptography.X509Certificates;
 
 namespace CashFlow.API.Controllers;
 
@@ -11,11 +8,10 @@ namespace CashFlow.API.Controllers;
 [ApiController]
 public class ExpensesController : ControllerBase
 {
-    [HttpPost]
-    public IActionResult Register([FromBody] RequestRegisterExpenseJson request)
-    {
-        var useCase = new RegisterExpenseUseCase();
 
+    [HttpPost]
+    public IActionResult Register([FromServices] IRegisterExpenseUseCase useCase , [FromBody] RequestRegisterExpenseJson request)
+    {
         var response = useCase.Execute(request);
 
         return Created(string.Empty, response);
