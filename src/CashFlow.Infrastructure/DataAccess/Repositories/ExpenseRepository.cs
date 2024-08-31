@@ -10,10 +10,14 @@ internal class ExpenseRepository : IExpensesRepository
     {
         this._dbContext = cashFlowDBContext;
     }
-    public void Add(Expense expense)
-    {
-        _dbContext.Expenses.Add(expense);
-    }
+    public async Task Add(Expense expense) => await _dbContext.Expenses.AddAsync(expense);
 
-    //Essa é a classe que será responsável por persistir os dados no banco de dados.
+
+
+
+
+
+
+
+
 }
