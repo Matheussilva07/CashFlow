@@ -5,16 +5,16 @@ using CashFlow.Domain.Repositories.Expenses;
 namespace CashFlow.Application.useCases.Expenses.GetAll;
 public class GetAllExpensesUseCase : IGetAllExpensesUseCase
 {
-    private readonly IExpensesRepository _repository;
+    private readonly IExpensesReadOnlyRepository _repository;
     private readonly IMapper _mapper;
-    public GetAllExpensesUseCase(IExpensesRepository repository, IMapper mapper)
+    public GetAllExpensesUseCase(IExpensesReadOnlyRepository repository, IMapper mapper)
     {
         this._repository = repository;
         this._mapper = mapper;
     }
     public async Task<ResponseExpensesJson> Execute()
     {
-        var result = await _repository.GettAll();
+        var result = await _repository.GetAll();
 
         return new ResponseExpensesJson
         {
