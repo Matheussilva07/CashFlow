@@ -15,7 +15,7 @@ public class AutoMapping : Profile
     {
         //A primeira classe é a origem dos dados e a segunda o destino dos dados:
 
-        CreateMap<RequestRegisterExpenseJson, Expense>();
+        CreateMap<RequestExpenseJson, Expense>();
     }
     private void EntityToResponse()
     {

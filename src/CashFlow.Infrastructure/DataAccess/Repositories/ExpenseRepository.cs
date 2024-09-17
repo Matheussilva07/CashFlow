@@ -3,7 +3,7 @@ using CashFlow.Domain.Repositories.Expenses;
 using Microsoft.EntityFrameworkCore;
 
 namespace CashFlow.Infrastructure.DataAccess.Repositories;
-internal class ExpenseRepository : IExpensesReadOnlyRepository , IExpensesWriteOnlyRepository
+internal class ExpenseRepository : IExpensesReadOnlyRepository , IExpensesWriteOnlyRepository , IExpensesUpdateOnlyRepository
 {
 
     private readonly CashFlowDBContext _dbContext;
@@ -15,16 +15,38 @@ internal class ExpenseRepository : IExpensesReadOnlyRepository , IExpensesWriteO
     {
          await _dbContext.Expenses.AddAsync(expense);
     }
+    public async Task<bool> Delete(int id)
+    {
+        var result = await _dbContext.Expenses.FirstOrDefaultAsync(expense => expense.Id == id);
 
+        if(result is null)
+        {
+            return false;
+        }
+
+        _dbContext.Expenses.Remove(result);
+
+        return true;
+    }
     public async Task<List<Expense>> GetAll()
     {
      //Sempre que for recuperar uma informação do banco de dados e não nenhuma atualização for feita, é importante usar esse método AsNoTracking pois ele optimiza essa ação:
 
       return await _dbContext.Expenses.AsNoTracking().ToListAsync();
     }
-
-    public async Task<Expense?> GetById(int id)
+    async Task<Expense?> IExpensesReadOnlyRepository.GetById(int id)
     {
       return await _dbContext.Expenses.AsNoTracking().FirstOrDefaultAsync(expense => expense.Id == id);
+    }
+    async Task<Expense?> IExpensesUpdateOnlyRepository.GetById(int id)
+    {
+        //No caso de métodos para pesquisar uma despesa para então poder atualizada, não podemos usar o AsNoTracking()
+
+       return await _dbContext.Expenses.FirstOrDefaultAsync(expense => expense.Id == id);
+    }
+
+    public void Update(Expense expense)
+    {
+        _dbContext.Update(expense);
     }
 }
