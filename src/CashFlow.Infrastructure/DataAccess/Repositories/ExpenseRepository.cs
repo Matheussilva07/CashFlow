@@ -38,13 +38,13 @@ internal class ExpenseRepository : IExpensesReadOnlyRepository , IExpensesWriteO
     {
       return await _dbContext.Expenses.AsNoTracking().FirstOrDefaultAsync(expense => expense.Id == id);
     }
+      
     async Task<Expense?> IExpensesUpdateOnlyRepository.GetById(int id)
     {
         //No caso de métodos para pesquisar uma despesa para então poder atualizada, não podemos usar o AsNoTracking()
 
        return await _dbContext.Expenses.FirstOrDefaultAsync(expense => expense.Id == id);
     }
-
     public void Update(Expense expense)
     {
         _dbContext.Update(expense);

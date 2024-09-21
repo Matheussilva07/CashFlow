@@ -2,6 +2,7 @@
 using CashFlow.Application.useCases.Expenses.GetAll;
 using CashFlow.Application.useCases.Expenses.GetById;
 using CashFlow.Application.useCases.Expenses.Register;
+using CashFlow.Application.useCases.Expenses.Update;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
 using Microsoft.AspNetCore.Mvc;
@@ -63,8 +64,10 @@ public class ExpensesController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Update( int id,[FromBody] RequestExpenseJson request)
+    public async Task<IActionResult> Update([FromServices]IUpdateExpenseUseCase useCase,[FromRoute] int id,[FromBody] RequestExpenseJson request)
     {
+        await useCase.Execute(id,request);
+        
         return NoContent();
     }
 }
