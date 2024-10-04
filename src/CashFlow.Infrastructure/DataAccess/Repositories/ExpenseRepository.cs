@@ -37,8 +37,7 @@ internal class ExpenseRepository : IExpensesReadOnlyRepository , IExpensesWriteO
     async Task<Expense?> IExpensesReadOnlyRepository.GetById(int id)
     {
       return await _dbContext.Expenses.AsNoTracking().FirstOrDefaultAsync(expense => expense.Id == id);
-    }
-      
+    }      
     async Task<Expense?> IExpensesUpdateOnlyRepository.GetById(int id)
     {
         //No caso de métodos para pesquisar uma despesa para então poder atualizada, não podemos usar o AsNoTracking()
@@ -49,7 +48,6 @@ internal class ExpenseRepository : IExpensesReadOnlyRepository , IExpensesWriteO
     {
         _dbContext.Update(expense);
     }
-
 	public async Task<List<Expense>> FilterByMonth(DateOnly date)
 	{
         var startDate = new DateTime(year: date.Year, month: date.Month, day: 1 ).Date;
