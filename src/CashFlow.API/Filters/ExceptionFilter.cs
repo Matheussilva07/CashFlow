@@ -28,7 +28,6 @@ public class ExceptionFilter : IExceptionFilter
         context.Result = new ObjectResult(errorResponse);
      
     }
-
     private void ThrowUnknowError(ExceptionContext context)
     {
         var errorResponse = new ResponseErrorJson(ResourceErrorMessages.UNKNOWN_ERROR);
