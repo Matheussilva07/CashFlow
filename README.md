@@ -20,7 +20,7 @@ Para Obeter uma cópia local funcionando, siga estes passos simples.
 ### Requisitos
 
 * Visual Studeo versão 2022+ ou Visual Studio Code
-* Windows 10+ ou Linux/MacOS com [.NET SDK(https://dotnet.microsoft.com/en-us/download/dotnet/8.0)] instalado 
+* Windows 10+ ou Linux/MacOS com [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) instalado 
 * MySql Server
 
 ### Instalação
