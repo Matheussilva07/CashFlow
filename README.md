@@ -6,7 +6,7 @@ A arquitetura da **API** baseia-se em **REST**, utilizando métodos **HTTP** pad
 
 Dentre os pacotes NuGet utilizados, o **AutoMapper** é o responsável pelo mapeamento entre objetos de dominio e requyisição/resposta, reduzindo a necessidade de codigo repetitivo e manual. O **FLuentAssertions** é utilizado nos testes de unidade para tornar as verificações mais legiveis, ajudando a escrever testes claros e compreensíveis. Para as validações, o **FLuentValidation** é usado para implementar regras de validação de forma simples e intuitiva nas classes de requisições, mantendo o código limpo e fácil de manter. Por fim, **EntityFramework** atua como um ORM(Object-Relational Mapper) que simplifica as interações com o banco de dados, permitindo o uso de objetos .NET para manipular dados diretamente, sem a necessidade de lidar com consultas SQL. 
 
-![](PrintPDF.png)
+![](images/PrintPDF.png)
 
 ### Features
 
