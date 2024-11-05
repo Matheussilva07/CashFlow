@@ -3,6 +3,7 @@ using CashFlow.API.Middleware;
 using CashFlow.Application;
 using CashFlow.Application.AutoMapper;
 using CashFlow.Infrastructure;
+using CashFlow.Infrastructure.Migrations;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -53,4 +54,16 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+//Aqui é onde o método é chamando.
+//Ele fará a verificação se há uma migração, caso não, ele fará uma nova e logo após a applicação é executada
+await MigrateDatabase();
+
 app.Run();
+
+//Método criado para fazer a migration automaticamente:
+async Task MigrateDatabase()
+{
+	await using var scope = app.Services.CreateAsyncScope();
+
+	await DataBaseMigration.MigrateDatabase(scope.ServiceProvider);
+}

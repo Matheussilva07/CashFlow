@@ -10,5 +10,6 @@ internal class CashFlowDBContext : DbContext
    
     //É com esta propriedade que acessamos nossa tabela e elas devem ter o mesmo nome
     public DbSet<Expense> Expenses { get; set; }
+    public DbSet<User> Users { get; set; }
  
 }
