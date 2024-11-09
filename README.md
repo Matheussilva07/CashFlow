@@ -34,3 +34,5 @@ Para Obeter uma cópia local funcionando, siga estes passos simples.
 
 2. Preencha as informações no arquivo `appsettings.Development.json`.
 3. Execute a API e aproveite o seu teste.
+
+![Static Badge](https://img.shields.io/badge/aqui%20%C3%A9%20a%20label-aqui%20uma%20drescri%C3%A7%C3%A3o-blue)
