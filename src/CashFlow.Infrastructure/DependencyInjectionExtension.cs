@@ -2,9 +2,11 @@
 using CashFlow.Domain.Repositories.Expenses;
 using CashFlow.Domain.Repositories.Users;
 using CashFlow.Domain.Security.Cryptography;
+using CashFlow.Domain.Security.Tokens;
 using CashFlow.Infrastructure.DataAccess;
 using CashFlow.Infrastructure.DataAccess.Repositories;
-using CashFlow.Infrastructure.Security;
+using CashFlow.Infrastructure.Security.Cryptography;
+using CashFlow.Infrastructure.Security.Tokens;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,8 +19,9 @@ public static class DependencyInjectionExtension
     {
        AddDbContext(services, configuration);
        AddRepositories(services);
+	   AddTokenGenerator(services, configuration);
 
-	    services.AddScoped<IPasswordEncripter, Cryptography>();
+	   services.AddScoped<IPasswordEncripter, Cryptography>();
 	}
 
     private static void AddRepositories(IServiceCollection services)
@@ -29,10 +32,16 @@ public static class DependencyInjectionExtension
         services.AddScoped<IExpensesUpdateOnlyRepository, ExpenseRepository>();
         services.AddScoped<IUserReadOnlyRepository, UserRepository>();
         services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
-       
+
+	}
+    private static void AddTokenGenerator(IServiceCollection services, IConfiguration configuration)
+    {
+        var expirationTimeMinutes = configuration.GetValue<uint>("Settings:Jwt:ExpiresMinutes");
+        var signingKey = configuration.GetValue<string>("Settings:Jwt:SigningKey");
+
+        services.AddScoped<IAccessTokenGenerator>(config => new JwtTokenGenerator(signingKey!,expirationTimeMinutes));
 
     }
-
     private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("Connection");

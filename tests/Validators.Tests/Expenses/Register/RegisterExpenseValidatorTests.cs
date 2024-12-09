@@ -12,12 +12,10 @@ public class RegisterExpenseValidatorTests
     [Fact]
     public void Success()
     {
-
-        //Arrrange
+        //Arrange
         var validator = new ExpenseValidator();
         var request = RequestRegisterExpenseJsonBuilder.Build();
-    
-       
+          
         //Act
         var result = validator.Validate(request);
 

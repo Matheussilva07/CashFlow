@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{7540B6
 		..\..\assets\PrintPDF.png = ..\..\assets\PrintPDF.png
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseCases.Tests", "tests\UseCasesTests\UseCases.Tests.csproj", "{009D2C72-D6D1-4FC6-AC48-4AFECAA1324C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{5239F1A4-A45D-4C8B-80D3-33B8A5FF4C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5239F1A4-A45D-4C8B-80D3-33B8A5FF4C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5239F1A4-A45D-4C8B-80D3-33B8A5FF4C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{009D2C72-D6D1-4FC6-AC48-4AFECAA1324C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{009D2C72-D6D1-4FC6-AC48-4AFECAA1324C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{009D2C72-D6D1-4FC6-AC48-4AFECAA1324C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{009D2C72-D6D1-4FC6-AC48-4AFECAA1324C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{3184213D-B0B1-4408-99A2-DDACF316A75D} = {33AB5A0E-7119-49DC-8766-56AB2CEA3589}
 		{A157A8EA-ED4A-40A2-8F3F-77DC947E8DFA} = {F2B90490-0E8C-4E49-B55F-4E8000DFB1D0}
 		{5239F1A4-A45D-4C8B-80D3-33B8A5FF4C6D} = {F2B90490-0E8C-4E49-B55F-4E8000DFB1D0}
+		{009D2C72-D6D1-4FC6-AC48-4AFECAA1324C} = {F2B90490-0E8C-4E49-B55F-4E8000DFB1D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {400FAC8B-52CF-4EF1-A652-B356D06C71A1}
