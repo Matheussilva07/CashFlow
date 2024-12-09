@@ -15,6 +15,12 @@ Dentre os pacotes NuGet utilizados, o **AutoMapper** é o responsável pelo mape
 - **Geração de Relatórios**: Capacidade de exportar relatórios detalahados para **PDF e Excel**, oferecendo uma análise visual e eficaz das despesas.
 - **RESTful API com Documentação Swagger**: Interface documentada que facilita a integração e o teste por parte dos desenvolvedores.
 
+### Construído com
+
+![.NET Badge](https://img.shields.io/badge/.NET-512BD4?logo=dotnet&logoColor=fff&style=flat-square)
+![Swagger Badge](https://img.shields.io/badge/Swagger-85EA2D?logo=swagger&logoColor=000&style=flat-square)
+![MySQL Badge](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff&style=flat-square)
+
 ## Getting Started
 
 Para Obeter uma cópia local funcionando, siga estes passos simples.
@@ -34,3 +40,4 @@ Para Obeter uma cópia local funcionando, siga estes passos simples.
 
 2. Preencha as informações no arquivo `appsettings.Development.json`.
 3. Execute a API e aproveite o seu teste.
+
