@@ -12,7 +12,7 @@ public class Cryptography : IPasswordEncripter
         return passwordHash;
     }
 
-	public bool PasswordMatch(string password, string passwordHash)
+	public bool Verify(string password, string passwordHash)
 	{
 		return BC.Verify(password, passwordHash);
 	}

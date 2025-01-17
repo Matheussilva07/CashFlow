@@ -12,7 +12,7 @@ namespace CashFlow.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize]
+[Authorize] //Este abributo defini que todos os endpoint no controlador precisem de um token para ser executados, posso definir que apenas um endpoint tenha esse atributo também.
 public class ExpensesController : ControllerBase
 {
     [HttpPost]

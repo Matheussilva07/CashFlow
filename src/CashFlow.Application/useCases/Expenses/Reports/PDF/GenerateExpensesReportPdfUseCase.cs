@@ -9,6 +9,7 @@ using MigraDoc.Rendering;
 using PdfSharp.Fonts;
 using System.Reflection;
 using CashFlow.Domain.Extensions;
+using CashFlow.Domain.Services.LoggedUser;
 
 namespace CashFlow.Application.useCases.Expenses.Reports.PDF;
 public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCase
@@ -17,27 +18,31 @@ public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCas
     private const int HEIGHT_ROW_EXPENSE_TABLE = 25;
     
     private readonly IExpensesReadOnlyRepository _repository;
-    public GenerateExpensesReportPdfUseCase(IExpensesReadOnlyRepository repository)
-    {
-        this._repository = repository;
-
-        //O código abaixo é que fará o gerenciamento das fontes
-
-        GlobalFontSettings.FontResolver = new ExpensesReportFontResolver();
-    }
-    public async Task<byte[]> Execute(DateOnly month)
+    private readonly ILoggedUser _loggedUser;
+	public GenerateExpensesReportPdfUseCase(IExpensesReadOnlyRepository repository, ILoggedUser loggedUser)
 	{
-		var expenses = await _repository.FilterByMonth(month);
+		_repository = repository;
+		_loggedUser = loggedUser;
+
+		//O código abaixo é que fará o gerenciamento das fontes
+
+		GlobalFontSettings.FontResolver = new ExpensesReportFontResolver();
+	}
+	public async Task<byte[]> Execute(DateOnly month)
+	{
+        var loggedUser = await _loggedUser.GetUser();
+
+		var expenses = await _repository.FilterByMonth(loggedUser, month);
 
         if (expenses.Count == 0)
         {
             return [];
         }
 
-        var document = CreateDocument(month);
+        var document = CreateDocument(loggedUser.Name,month);
         var page = CreatePage(document);
 
-        CreateHeaderWithProfilePhotoAndName(page);
+        CreateHeaderWithProfilePhotoAndName(loggedUser.Name,page);
 
 		var totalExpenses = expenses.Sum(expenses => expenses.Amount);
 
@@ -95,19 +100,21 @@ public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCas
 
 		return RenderDocument(document);
 	}
-    private Document CreateDocument(DateOnly month)
+
+	#region O código que cria o PDF foi partimentado para melhor entendimento e para que cada método tenha uma única responsabilidade.
+	private Document CreateDocument(string author,DateOnly month)
     {
         //Aqui é onde criamos o documento e podemos passar várias informações, nome da empresa, assunto e etc.
 
         var document = new Document();
-        document.Info.Title = $"{month}";
+
+        document.Info.Title = $"{ResourceReportGenerationMessages.EXPENSES_FOR} {month:Y}";
         document.Info.Subject = "Faturamento";
-        document.Info.Author = "Matheus Santana";
+        document.Info.Author = author;
 
         var style = document.Styles["Normal"];
         style!.Font.Name = FontHelper.RALEWAY_REGULAR;
         //style.Font.Size = 14;
-
 
         return document;
     }
@@ -127,7 +134,7 @@ public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCas
 
         return section;
     }
-    private void CreateHeaderWithProfilePhotoAndName(Section page)
+    private void CreateHeaderWithProfilePhotoAndName(string name,Section page)
     {
         //Código que cria uma tabela, assim como duas colunas e uma linha.
         //Por meio de seus objetos podemos acessar algumas propriedades e assim fazer outras configurações:
@@ -152,7 +159,7 @@ public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCas
 
         //Código que cria um paragráfo e define uma fonte e alinhamento para ele:
 
-		row.Cells[1].AddParagraph("Hey, Matheus Santana");
+		row.Cells[1].AddParagraph($"Hey, {name}");
 		row.Cells[1].Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 16 };
 		row.Cells[1].VerticalAlignment = MigraDoc.DocumentObjectModel.Tables.VerticalAlignment.Center;
 	}
@@ -241,6 +248,6 @@ public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCas
         return file.ToArray();
     }
 
-
+	#endregion
 
 }

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace CashFlow.Infrastructure.DataAccess;
-internal class CashFlowDBContext : DbContext
+public class CashFlowDBContext : DbContext
 {
 
     //A sintaxe abaixo quer dizer que a classe base que é a DbContext está recebendo os parametros desse construtor

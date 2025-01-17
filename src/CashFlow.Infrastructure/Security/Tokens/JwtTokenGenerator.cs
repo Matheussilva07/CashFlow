@@ -24,7 +24,8 @@ internal class JwtTokenGenerator : IAccessTokenGenerator
 		var claims = new List<Claim>()
         {
             new Claim(ClaimTypes.Name, user.Name),
-            new Claim(ClaimTypes.Sid, user.UserIdentifier.ToString())
+            new Claim(ClaimTypes.Sid, user.UserIdentifier.ToString()),
+            new Claim(ClaimTypes.Role, user.Role)
         };
 
 		//O código abaixo faz parte da criação de um token JWT e define os parâmetros que serão usados para gerar o token.

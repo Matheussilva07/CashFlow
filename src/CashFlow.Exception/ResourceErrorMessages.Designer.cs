@@ -133,7 +133,7 @@ namespace CashFlow.Exception {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a O nome não pode estar vazio.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Name cannot be empty.
         /// </summary>
         public static string NAME_EMPTY {
             get {

@@ -1,6 +1,7 @@
 ﻿using CashFlow.Domain.Enums;
 using CashFlow.Domain.Extensions;
 using CashFlow.Domain.Repositories.Expenses;
+using CashFlow.Domain.Services.LoggedUser;
 using ClosedXML.Excel;
 
 namespace CashFlow.Application.useCases.Expenses.Reports.Excel;
@@ -9,13 +10,17 @@ public class GenerateExpenseReportExcelUseCase : IGenerateExpenseReportExcelUseC
     private const string CURRENCY_SYMBOL = "R$";
 
     private readonly IExpensesReadOnlyRepository _repository;
-	public GenerateExpenseReportExcelUseCase(IExpensesReadOnlyRepository repository)
+    private readonly ILoggedUser _loggedUser;
+	public GenerateExpenseReportExcelUseCase(IExpensesReadOnlyRepository repository, ILoggedUser loggedUser)
+	{
+		_repository = repository;
+		_loggedUser = loggedUser;
+	}
+	public async Task<byte[]> Execute(DateOnly month)
     {
-        this._repository = repository;
-    }
-    public async Task<byte[]> Execute(DateOnly month)
-    {
-        var expenses = await _repository.FilterByMonth(month);
+        var loggedUser = await _loggedUser.GetUser();
+        
+        var expenses = await _repository.FilterByMonth(loggedUser, month);
 
         if (expenses.Count == 0)
         {
@@ -24,7 +29,7 @@ public class GenerateExpenseReportExcelUseCase : IGenerateExpenseReportExcelUseC
 
         using var workBook = new XLWorkbook();
 
-        workBook.Author = "Matheus Santana";
+        workBook.Author = loggedUser.Name;
         workBook.Style.Font.FontSize = 12;
         workBook.Style.Font.FontColor = XLColor.WarmBlack;
         workBook.Style.Font.FontName = "Arial";

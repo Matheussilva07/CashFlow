@@ -7,17 +7,15 @@ internal class ExpenseRepository : IExpensesReadOnlyRepository , IExpensesWriteO
 {
 
     private readonly CashFlowDBContext _dbContext;
-    public ExpenseRepository(CashFlowDBContext cashFlowDBContext)
-    {
-       _dbContext = cashFlowDBContext;
-    }
+    public ExpenseRepository(CashFlowDBContext cashFlowDBContext) => _dbContext = cashFlowDBContext;  
+
     public async Task Add(Expense expense)
     {
          await _dbContext.Expenses.AddAsync(expense);
     }
-    public async Task<bool> Delete(int id)
+    public async Task<bool> Delete(int id, User user)
     {
-        var result = await _dbContext.Expenses.FirstOrDefaultAsync(expense => expense.Id == id);
+        var result = await _dbContext.Expenses.FirstOrDefaultAsync(expense => expense.Id == id && expense.UserId == user.Id);
 
         if(result is null)
         {
@@ -28,27 +26,27 @@ internal class ExpenseRepository : IExpensesReadOnlyRepository , IExpensesWriteO
 
         return true;
     }
-    public async Task<List<Expense>> GetAll()
+    public async Task<List<Expense>> GetAll(User user)
     {
      //Sempre que for recuperar uma informação do banco de dados e não nenhuma atualização for feita, é importante usar esse método AsNoTracking pois ele optimiza essa ação:
 
-      return await _dbContext.Expenses.AsNoTracking().ToListAsync();
+      return await _dbContext.Expenses.AsNoTracking().Where(expense => expense.UserId == user.Id).ToListAsync();
     }
-    async Task<Expense?> IExpensesReadOnlyRepository.GetById(int id)
+    async Task<Expense?> IExpensesReadOnlyRepository.GetById(int id, User user)
     {
-      return await _dbContext.Expenses.AsNoTracking().FirstOrDefaultAsync(expense => expense.Id == id);
+      return await _dbContext.Expenses.AsNoTracking().FirstOrDefaultAsync(expense => expense.Id == id && expense.UserId == user.Id);
     }      
-    async Task<Expense?> IExpensesUpdateOnlyRepository.GetById(int id)
+    async Task<Expense?> IExpensesUpdateOnlyRepository.GetById(User user,int id)
     {
-        //No caso de métodos para pesquisar uma despesa para então poder atualizada, não podemos usar o AsNoTracking()
+        //No caso de métodos para pesquisar uma despesa para então poder atualizada, não podemos usar o AsNoTracking(), já que serão feitas modificações.
 
-       return await _dbContext.Expenses.FirstOrDefaultAsync(expense => expense.Id == id);
+       return await _dbContext.Expenses.FirstOrDefaultAsync(expense => expense.Id == id && expense.UserId == user.Id);
     }
     public void Update(Expense expense)
     {
         _dbContext.Update(expense);
     }
-	public async Task<List<Expense>> FilterByMonth(DateOnly date)
+	public async Task<List<Expense>> FilterByMonth(User user, DateOnly date)
 	{
         var startDate = new DateTime(year: date.Year, month: date.Month, day: 1 ).Date;
 
@@ -59,7 +57,7 @@ internal class ExpenseRepository : IExpensesReadOnlyRepository , IExpensesWriteO
 
 		return await _dbContext.Expenses
             .AsNoTracking()
-            .Where(expense => expense.Date >= startDate && expense.Date <= endDate)
+            .Where(expense => expense.UserId == user.Id && expense.Date >= startDate && expense.Date <= endDate)
             .OrderBy(ex => ex.Date)
             .ToListAsync();
 	}

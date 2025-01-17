@@ -142,7 +142,7 @@
     <value>Senha inválida</value>
   </data>
   <data name="NAME_EMPTY" xml:space="preserve">
-    <value>O nome não pode estar vazio</value>
+    <value>Name cannot be empty</value>
   </data>
   <data name="PAYMENTE_TYPE_INVALID" xml:space="preserve">
     <value>Payment type is not valid.</value>

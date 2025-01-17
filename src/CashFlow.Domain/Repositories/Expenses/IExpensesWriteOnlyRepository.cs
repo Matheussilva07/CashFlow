@@ -9,5 +9,5 @@ public interface IExpensesWriteOnlyRepository
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    Task<bool> Delete(int id);
+    Task<bool> Delete(int id, User user);
 }

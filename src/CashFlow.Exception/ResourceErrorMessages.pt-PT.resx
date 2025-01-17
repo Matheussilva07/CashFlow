@@ -123,6 +123,9 @@
   <data name="EXPENSES_CANNOT_FOR_THE_FUTURE" xml:space="preserve">
     <value>As despesas não podem ser para o futuro.</value>
   </data>
+  <data name="NAME_EMPTY" xml:space="preserve">
+    <value>O nome não pode estar vazio.</value>
+  </data>
   <data name="PAYMENTE_TYPE_INVALID" xml:space="preserve">
     <value>Pagamento inválido.</value>
   </data>

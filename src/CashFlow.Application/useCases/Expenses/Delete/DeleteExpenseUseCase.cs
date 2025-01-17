@@ -1,5 +1,6 @@
 ﻿using CashFlow.Domain.Repositories;
 using CashFlow.Domain.Repositories.Expenses;
+using CashFlow.Domain.Services.LoggedUser;
 using CashFlow.Exception;
 using CashFlow.Exception.ExceptionsBase;
 
@@ -8,15 +9,19 @@ public class DeleteExpenseUseCase : IDeleteExpenseUseCase
 {
     private readonly IExpensesWriteOnlyRepository _repository;
     private readonly IUnitOfWork _unitOfWork;
-    public DeleteExpenseUseCase(IExpensesWriteOnlyRepository repository, IUnitOfWork unitOfWork)
-    {
-        this._repository = repository;
-        this._unitOfWork = unitOfWork;
-    }
+    private readonly ILoggedUser _loggedUser;
+	public DeleteExpenseUseCase(IExpensesWriteOnlyRepository repository, IUnitOfWork unitOfWork, ILoggedUser loggedUser)
+	{
+		_repository = repository;
+		_unitOfWork = unitOfWork;
+		_loggedUser = loggedUser;
+	}
 
-    public async Task Execute(int id)
+	public async Task Execute(int id)
     {
-        var result = await _repository.Delete(id);
+        var loggedUser = await _loggedUser.GetUser();
+
+        var result = await _repository.Delete(id, loggedUser);
 
         if (result == false)
         {

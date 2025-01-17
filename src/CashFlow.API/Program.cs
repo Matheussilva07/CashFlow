@@ -1,16 +1,17 @@
 using CashFlow.API.Filters;
 using CashFlow.API.Middleware;
 using CashFlow.Application;
-using CashFlow.Application.AutoMapper;
 using CashFlow.Infrastructure;
 using CashFlow.Infrastructure.Migrations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using CashFlow.Infrastructure.Extensions;
+using CashFlow.Domain.Security.Tokens;
+using CashFlow.API.Token;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 
 builder.Services.AddControllers();
@@ -60,6 +61,8 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 
 builder.Services.AddRouting(option => option.LowercaseUrls = true);
+builder.Services.AddScoped<ITokenProvider, HttpContextTokenValue>();
+builder.Services.AddHttpContextAccessor();
 
 //O código abaixo foi inserido para configurar o Swagger:
 
@@ -111,9 +114,14 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-//Aqui é onde o método é chamando.
-//Ele fará a verificação se há uma migração, caso não, ele fará uma nova e logo após a applicação é executada
-await MigrateDatabase();
+
+if (builder.Configuration.IsTestEnvironment() == false)
+{
+	//Aqui é onde o método é chamando.
+	//Ele fará a verificação se há uma migração, caso não, ele fará uma nova e logo após a applicação é executada
+	await MigrateDatabase();
+}
+
 
 app.Run();
 
@@ -124,4 +132,10 @@ async Task MigrateDatabase()
 	await using var scope = app.Services.CreateAsyncScope();
 
 	await DataBaseMigration.MigrateDatabase(scope.ServiceProvider);
+}
+
+
+public partial class Program
+{
+
 }
