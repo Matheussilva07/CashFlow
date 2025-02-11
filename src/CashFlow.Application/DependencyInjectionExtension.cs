@@ -6,8 +6,10 @@ using CashFlow.Application.useCases.Expenses.Register;
 using CashFlow.Application.useCases.Expenses.Reports.Excel;
 using CashFlow.Application.useCases.Expenses.Reports.PDF;
 using CashFlow.Application.useCases.Expenses.Update;
-using CashFlow.Application.useCases.Users.Login;
+using CashFlow.Application.useCases.Login;
+using CashFlow.Application.useCases.Users.Profile;
 using CashFlow.Application.useCases.Users.Register;
+using CashFlow.Application.useCases.Users.Update;
 using CashFlow.Domain.Security.Cryptography;
 using CashFlow.Domain.Security.Tokens;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,6 +39,9 @@ public static class DependencyInjectionExtension
         services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
 
         services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
+
+        services.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
+        services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
          
     }
 }

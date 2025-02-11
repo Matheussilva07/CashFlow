@@ -3,60 +3,55 @@ using CommonTestUtilities.Requests;
 using FluentAssertions;
 using System.Globalization;
 using System.Net;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
 using System.Text.Json;
 using WebAPI.Tests.InlineData;
 
 namespace WebAPI.Tests.Users.Register;
 
-public class RegisterUserTest : IClassFixture<CustomWebApplicationFactory>
+public class RegisterUserTest : CashFLowClassFixture
 {
-    private readonly HttpClient _httpClient;
-    private const string COMPLEMENT_URL = "api/user";
+	private const string METHOD = "api/user";
 
-	public RegisterUserTest(CustomWebApplicationFactory webApplicationFactory)
-    {
-        _httpClient = webApplicationFactory.CreateClient();
-    }
-
-    [Fact]
-	public async Task Success()
+	public RegisterUserTest(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)
 	{
-        var request = RequestRegisterUserJsonBuilder.Build();
 
-        var result = await _httpClient.PostAsJsonAsync(COMPLEMENT_URL, request);
-
-        result.StatusCode.Should().Be(HttpStatusCode.Created);      
-
-        var body = await result.Content.ReadAsStreamAsync();
-
-        var response = await JsonDocument.ParseAsync(body);
-
-        response.RootElement.GetProperty("name").GetString().Should().Be(request.Name);
-        response.RootElement.GetProperty("token").GetString().Should().NotBeNullOrWhiteSpace();
 	}
 
-    [Theory]
-    [ClassData(typeof(CultureInlineDataTest))]
-    public async Task Error_Empty_Name(string cultureInfo)
-    {
+	[Fact]
+	public async Task Success()
+	{
 		var request = RequestRegisterUserJsonBuilder.Build();
-        request.Name = string.Empty;
 
-        _httpClient.DefaultRequestHeaders.AcceptLanguage.Add(new StringWithQualityHeaderValue(cultureInfo));
+		var result = await DoPost(METHOD, request);
 
-		var result = await _httpClient.PostAsJsonAsync(COMPLEMENT_URL, request);
+		result.StatusCode.Should().Be(HttpStatusCode.Created);
 
-        result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+		var body = await result.Content.ReadAsStreamAsync();
 
-        var body = await result.Content.ReadAsStreamAsync();
+		var response = await JsonDocument.ParseAsync(body);
 
-        var response = await JsonDocument.ParseAsync(body);
+		response.RootElement.GetProperty("name").GetString().Should().Be(request.Name);
+		response.RootElement.GetProperty("token").GetString().Should().NotBeNullOrWhiteSpace();
+	}
 
-       var errors = response.RootElement.GetProperty("errorMessages").EnumerateArray(); //O método GetProperty() pegará o objeto Lista de erros na Classe ResponseErrorJson e por ser uma lista, precisamos usar o outro método EnumerateArray() para retornar a lista de erros;
+	[Theory]
+	[ClassData(typeof(CultureInlineDataTest))]
+	public async Task Error_Empty_Name(string culture)
+	{
+		var request = RequestRegisterUserJsonBuilder.Build();
+		request.Name = string.Empty;
 
-        var expectedMessage = ResourceErrorMessages.ResourceManager.GetString("NAME_EMPTY", new CultureInfo(cultureInfo));
+		var result = await DoPost(requestUri: METHOD, request: request, culture: culture);
+
+		result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+
+		var body = await result.Content.ReadAsStreamAsync();
+
+		var response = await JsonDocument.ParseAsync(body);
+
+		var errors = response.RootElement.GetProperty("errorMessages").EnumerateArray(); //O método GetProperty() pegará o objeto Lista de erros na Classe ResponseErrorJson e por ser uma lista, precisamos usar o outro método EnumerateArray() para retornar a lista de erros;
+
+		var expectedMessage = ResourceErrorMessages.ResourceManager.GetString("NAME_EMPTY", new CultureInfo(culture));
 
 		errors.Should().HaveCount(1).And.Contain(error => error.GetString()!.Equals(expectedMessage));
 	}

@@ -20,7 +20,7 @@ public class UpdateExpenseUseCase : IUpdateExpenseUseCase
 		_repository = repository;
 		_loggedUser = loggedUser;
 	}
-	public async Task Execute(int id, RequestExpenseJson request)
+	public async Task Execute(long id, RequestExpenseJson request)
     {
         Validate(request);
 

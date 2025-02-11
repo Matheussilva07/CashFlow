@@ -1,0 +1,9 @@
+{
+  "CashFlow.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.API",
+  "CashFlow.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Application",
+  "CashFlow.Communication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Communication",
+  "CashFlow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Domain",
+  "CashFlow.Exception, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Exception",
+  "CashFlow.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Infrastructure",
+  "CommonTestUtilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\tests\\CommonTestUtilities"
+}

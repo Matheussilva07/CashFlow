@@ -20,7 +20,7 @@ public class GetExpenseByIdUseCase : IGetExpenseByIdUseCase
 		_mapper = mapper;
 		_loggedUser = loggedUser;
 	}
-	public async Task<ResponseExpenseJson> Execute(int id)
+	public async Task<ResponseExpenseJson> Execute(long id)
     {
         var loggedUser = await _loggedUser.GetUser();
               

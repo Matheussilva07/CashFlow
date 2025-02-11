@@ -1,4 +1,4 @@
-﻿using CashFlow.Application.useCases.Users.Login;
+﻿using CashFlow.Application.useCases.Login;
 using CashFlow.Domain.Entities;
 using CashFlow.Exception;
 using CashFlow.Exception.ExceptionsBase;
@@ -16,7 +16,7 @@ public class DoLoginUseCaseTest
 	[Fact]
 	public async Task Success()
 	{
-		var user = UserBuilder.BuildUserEntity();
+		var user = UserBuilder.Build();
 
 		var request = RequestLoginJsonBuilder.Build();
 
@@ -33,7 +33,7 @@ public class DoLoginUseCaseTest
 	[Fact]
 	public async Task Error_User_Not_Found()
 	{
-		var user = UserBuilder.BuildUserEntity();
+		var user = UserBuilder.Build();
 
 		var request = RequestLoginJsonBuilder.Build();
 
@@ -49,7 +49,7 @@ public class DoLoginUseCaseTest
 	[Fact]
 	public async Task Error_Passoword_Not_Match()
 	{
-		var user = UserBuilder.BuildUserEntity();
+		var user = UserBuilder.Build();
 
 		var request = RequestLoginJsonBuilder.Build();
 		request.Email = user.Email;
@@ -67,7 +67,7 @@ public class DoLoginUseCaseTest
 	{		
 		var passwordEncrypter = new PasswordEncrypterBuilder().Verify(password).Build();
 		var tokenGenerator = JwtTokenGeneratorBuilder.BuildTokenGenerator();
-		var readRepository = new UserReadOnlyRepositoryBuilder().GetUserByEmail(user).BuildReadOnlyRepository();
+		var readRepository = new UserReadOnlyRepositoryBuilder().GetUserByEmail(user).Build();
 
 		return new DoLoginUseCase(readRepository, passwordEncrypter, tokenGenerator);
 	}

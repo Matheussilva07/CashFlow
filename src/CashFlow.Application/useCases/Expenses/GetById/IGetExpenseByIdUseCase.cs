@@ -4,5 +4,5 @@ using CashFlow.Domain.Entities;
 namespace CashFlow.Application.useCases.Expenses.GetById;
 public interface IGetExpenseByIdUseCase
 {
-    Task<ResponseExpenseJson> Execute(int id);
+    Task<ResponseExpenseJson> Execute(long id);
 }

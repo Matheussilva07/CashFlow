@@ -17,7 +17,7 @@ public class DeleteExpenseUseCase : IDeleteExpenseUseCase
 		_loggedUser = loggedUser;
 	}
 
-	public async Task Execute(int id)
+	public async Task Execute(long id)
     {
         var loggedUser = await _loggedUser.GetUser();
 

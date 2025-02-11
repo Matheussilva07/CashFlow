@@ -23,6 +23,6 @@ public class UserReadOnlyRepositoryBuilder
 
         return this;
     }
-    public IUserReadOnlyRepository BuildReadOnlyRepository() => _repository.Object;
+    public IUserReadOnlyRepository Build() => _repository.Object;
 
 }

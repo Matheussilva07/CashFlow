@@ -13,7 +13,7 @@ internal class ExpenseRepository : IExpensesReadOnlyRepository , IExpensesWriteO
     {
          await _dbContext.Expenses.AddAsync(expense);
     }
-    public async Task<bool> Delete(int id, User user)
+    public async Task<bool> Delete(long id, User user)
     {
         var result = await _dbContext.Expenses.FirstOrDefaultAsync(expense => expense.Id == id && expense.UserId == user.Id);
 
@@ -32,11 +32,11 @@ internal class ExpenseRepository : IExpensesReadOnlyRepository , IExpensesWriteO
 
       return await _dbContext.Expenses.AsNoTracking().Where(expense => expense.UserId == user.Id).ToListAsync();
     }
-    async Task<Expense?> IExpensesReadOnlyRepository.GetById(int id, User user)
+    async Task<Expense?> IExpensesReadOnlyRepository.GetById(long id, User user)
     {
       return await _dbContext.Expenses.AsNoTracking().FirstOrDefaultAsync(expense => expense.Id == id && expense.UserId == user.Id);
     }      
-    async Task<Expense?> IExpensesUpdateOnlyRepository.GetById(User user,int id)
+    async Task<Expense?> IExpensesUpdateOnlyRepository.GetById(User user,long id)
     {
         //No caso de métodos para pesquisar uma despesa para então poder atualizada, não podemos usar o AsNoTracking(), já que serão feitas modificações.
 

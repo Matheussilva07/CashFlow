@@ -30,7 +30,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{7540B6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseCases.Tests", "tests\UseCasesTests\UseCases.Tests.csproj", "{009D2C72-D6D1-4FC6-AC48-4AFECAA1324C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI.Tests(Testes_de_Integração)", "tests\WebAPI.Tests\WebAPI.Tests(Testes_de_Integração).csproj", "{3539C7D0-327F-47A8-9FA8-66DDC95D9D6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI.Tests", "tests\WebAPI.Tests\WebAPI.Tests.csproj", "{3539C7D0-327F-47A8-9FA8-66DDC95D9D6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
