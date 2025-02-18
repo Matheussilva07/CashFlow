@@ -4,7 +4,7 @@ using Moq;
 namespace CommonTestUtilities.RepositoriesMocks.Users;
 public class UserWriteOnlyRepositoryBuilder
 {
-    public static IUserWriteOnlyRepository BuildRepository()
+    public static IUserWriteOnlyRepository Build()
     {
         var mock = new Mock<IUserWriteOnlyRepository>();
 
