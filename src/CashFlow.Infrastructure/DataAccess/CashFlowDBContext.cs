@@ -11,5 +11,12 @@ public class CashFlowDBContext : DbContext
     //É com esta propriedade que acessamos nossa tabela e elas devem ter o mesmo nome
     public DbSet<Expense> Expenses { get; set; }
     public DbSet<User> Users { get; set; }
- 
+
+	protected override void OnModelCreating(ModelBuilder modelBuilder)
+	{
+		base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Tag>().ToTable("Tags");
+	}
+
 }
