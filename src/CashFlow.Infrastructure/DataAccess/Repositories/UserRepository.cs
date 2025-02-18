@@ -16,6 +16,17 @@ internal class UserRepository : IUserReadOnlyRepository, IUserWriteOnlyRepositor
 		await _dbContext.Users.AddAsync(user);
 	}
 
+	/// <summary>
+	/// O método para deletar irá receber a entidade user da classe loggedUser, só que o método usar o método asNoTracking, que náo permite fazer modificações no banco de dados
+	/// logo, usamos neste método abaixo a função FindAsync sem o asNoTracking para podermos fazer a deleção da entidade corretamente.
+	/// </summary>
+	public async Task Delete(User user)
+	{
+		var userToRemove = await _dbContext.Users.FindAsync(user.Id);
+		
+		_dbContext.Users.Remove(userToRemove!);
+	}
+
 	public async Task<bool> ExistActiveUserWithEmail(string email)
 	{
 		return await _dbContext.Users.AnyAsync(user => user.Email.Equals(email));
