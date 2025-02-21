@@ -33,6 +33,8 @@ public class UpdateExpenseUseCase : IUpdateExpenseUseCase
             throw new NotFoundException(ResourceErrorMessages.EXPENSE_NOT_FOUND);
         }
 
+        expense.Tags.Clear(); //Código para limpar as tags, assim evitamos de fazer várias verificações se hás tags que estão sendo atualizadas já existem ou não. Com esse código apenas limpagmos as que já existem e adicionamos as novas pela requisição.
+
         _mapper.Map(request,expense);
 
         _repository.Update(expense);
