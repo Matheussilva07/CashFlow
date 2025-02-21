@@ -6,30 +6,30 @@ using CashFlow.Domain.Entities;
 namespace CashFlow.Application.AutoMapper;
 public class AutoMapping : Profile
 {
-    public AutoMapping()
-    {
-        RequestToEntity();
-        EntityToResponse();
-    }
-    private void RequestToEntity()
-    {
-        //A primeira classe é a origem dos dados e a segunda o destino dos dados:
+	public AutoMapping()
+	{
+		RequestToEntity();
+		EntityToResponse();
+	}
+	private void RequestToEntity()
+	{
+		CreateMap<RequestRegisterUserJson, User>().ForMember(user => user.Password, configuracao => configuracao.Ignore());
 
-        CreateMap<RequestExpenseJson, Expense>();
+		CreateMap<RequestExpenseJson, Expense>().ForMember(dest => dest.Tags, config => config.MapFrom(source => source.Tags.Distinct()));
 
-        //O código abaixo serve para definir o automapper,
-        //como também para definir que a propriedade Password deve ser ignorada no mapeamento de propriedades
+		CreateMap<Communication.Enums.Tag, Tag>().ForMember(dest => dest.Value, config => config.MapFrom(source => source));
 
-        CreateMap<RequestRegisterUserJson, User>().ForMember(user => user.Password, configuracao => configuracao.Ignore());
+	}
+	private void EntityToResponse()
+	{
+		CreateMap<Expense, ResponseExpenseJson>()
+			.ForMember(destino => destino.Tags, config => config.MapFrom(origem => origem.Tags.Select(entidadeTag => entidadeTag.Value)));
 
-    }
-    private void EntityToResponse()
-    {
-        CreateMap<Expense, ResponseRegisteredExpenseJson>();
-        CreateMap<Expense, ResponseShortExpensesJson>();
-        CreateMap<Expense, ResponseExpenseJson>();
 
-        CreateMap<User, ResponseUserProfileJson>();
 
-    }
+		CreateMap<Expense, ResponseRegisteredExpenseJson>();
+		CreateMap<Expense, ResponseShortExpensesJson>();
+		CreateMap<User, ResponseUserProfileJson>();
+
+	}
 }
