@@ -8062,11 +8062,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.API\\CashFlow.API.csproj",
+      "projectUniqueName": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.API\\CashFlow.API.csproj",
       "projectName": "CashFlow.API",
-      "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.API\\CashFlow.API.csproj",
+      "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.API\\CashFlow.API.csproj",
       "packagesPath": "C:\\Users\\theus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.API\\obj\\",
+      "outputPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -8087,17 +8087,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Application\\CashFlow.Application.csproj": {
-              "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Application\\CashFlow.Application.csproj"
+            "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Application\\CashFlow.Application.csproj": {
+              "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Application\\CashFlow.Application.csproj"
             },
-            "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Communication\\CashFlow.Communication.csproj": {
-              "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Communication\\CashFlow.Communication.csproj"
+            "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Communication\\CashFlow.Communication.csproj": {
+              "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Communication\\CashFlow.Communication.csproj"
             },
-            "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Exception\\CashFlow.Exception.csproj": {
-              "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Exception\\CashFlow.Exception.csproj"
+            "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Exception\\CashFlow.Exception.csproj": {
+              "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Exception\\CashFlow.Exception.csproj"
             },
-            "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Infrastructure\\CashFlow.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Infrastructure\\CashFlow.Infrastructure.csproj"
+            "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Infrastructure\\CashFlow.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Infrastructure\\CashFlow.Infrastructure.csproj"
             }
           }
         }

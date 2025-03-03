@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Communication\\CashFlow.Communication.csproj",
+      "projectUniqueName": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Communication\\CashFlow.Communication.csproj",
       "projectName": "CashFlow.Communication",
-      "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Communication\\CashFlow.Communication.csproj",
+      "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Communication\\CashFlow.Communication.csproj",
       "packagesPath": "C:\\Users\\theus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Communication\\obj\\",
+      "outputPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Communication\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

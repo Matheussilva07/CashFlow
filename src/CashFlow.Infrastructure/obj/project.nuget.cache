@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UVz1AFJMs3HOadAOQ1zIgJ9ad/eaCLfVdJOJgdQ0/B290Sz45z9j+Ulr0A6IpHF/uHoaRSKJJauF1Eb99AL8zw==",
+  "dgSpecHash": "/32e3clxd7D+yNcYS/0hdJz+MfDnB9N1Su0YTzuWgUhPRPp1VmsCRiElPYhpAEr3y2QiZKgZ4ffx/8ly4LXkIQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Infrastructure\\CashFlow.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Infrastructure\\CashFlow.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\theus\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\theus\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

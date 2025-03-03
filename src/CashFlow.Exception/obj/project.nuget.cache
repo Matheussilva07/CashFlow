@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1rB0X8u1nTE25PpiONVORDBFPFlqsv2vqQLuFZfVk9ozstUrQAQ0AKfrGf5R0S6xmef/AhhHfBwZMTaXS5Ed3g==",
+  "dgSpecHash": "yIVtrkukcwpBhuSm4T8rGgsL3Cb6TO29Ke8mMg041esyVTtvMhbY75UBzGDYrOSNjMJ/nLmYHo8iF8x1N949uA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Exception\\CashFlow.Exception.csproj",
+  "projectFilePath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Exception\\CashFlow.Exception.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

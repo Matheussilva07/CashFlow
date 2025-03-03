@@ -2638,11 +2638,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Infrastructure\\CashFlow.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Infrastructure\\CashFlow.Infrastructure.csproj",
       "projectName": "CashFlow.Infrastructure",
-      "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Infrastructure\\CashFlow.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Infrastructure\\CashFlow.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\theus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2663,8 +2663,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Domain\\CashFlow.Domain.csproj": {
-              "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Domain\\CashFlow.Domain.csproj"
+            "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Domain\\CashFlow.Domain.csproj": {
+              "projectPath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Domain\\CashFlow.Domain.csproj"
             }
           }
         }

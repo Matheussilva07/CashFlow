@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8W4kURBvxqMfY84zkui6HdLw1mX69oH0q4ypnDGQO/Ti/LBRALqp9HD6q31W9Re1Bb6WGbD/lTsRzSJDg7mOag==",
+  "dgSpecHash": "80bw+uJ/rcNLL1p6uKK8MvVojSLsC8dCwO1ueRasRl0ev2gsEywJCFq4/D2q+tpvi+cwnNOuzKV3KRdF8M3zDA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\tests\\CommonTestUtilities\\CommonTestUtilities.csproj",
+  "projectFilePath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\tests\\CommonTestUtilities\\CommonTestUtilities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\theus\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\theus\\.nuget\\packages\\bogus\\35.6.0\\bogus.35.6.0.nupkg.sha512",

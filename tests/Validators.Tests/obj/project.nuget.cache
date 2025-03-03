@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mXvvI6esu1cWKnEbSM1V1Ki1qOxq7qHq4zHvZPue3/wkTtkusOI87HGeUodZjcZA3y8lB6ePYGpLf7SNfZag4Q==",
+  "dgSpecHash": "3WD9aTF3pX6b78WqPUyuIiuNoVJUnbskVTUoW/KsyO9fwJ0ieIIi/fNpaKylTyCUV5XUOoMPaJuBz3kRf1rCsQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\tests\\Validators.Tests\\Validators.Tests.csproj",
+  "projectFilePath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\tests\\Validators.Tests\\Validators.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\theus\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\theus\\.nuget\\packages\\bogus\\35.6.0\\bogus.35.6.0.nupkg.sha512",

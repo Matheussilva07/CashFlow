@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PcUQgiOCyeIdVBaz8THuLW7l7IvzURePh7zQvmz2PgOKl8fhtPSSyrsUKi0IScXfg8LfEQKuAmT/DiOoSYsaIw==",
+  "dgSpecHash": "KHA6jbKT9ekxyV4Rs1v9bVEcKQTaECmfxEHZ0qnzmy02zO1xRe5EK10iIjgDb+TVhWU02raxG8cO4Wn285m/mQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.Application\\CashFlow.Application.csproj",
+  "projectFilePath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.Application\\CashFlow.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\theus\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\theus\\.nuget\\packages\\closedxml\\0.102.3\\closedxml.0.102.3.nupkg.sha512",

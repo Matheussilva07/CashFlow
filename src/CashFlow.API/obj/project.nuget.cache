@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aLTXpsgfRcNneTqqjpKDIxsJsRC8+QOf6gGuf2RmnqN8g7Jf3g5UjqrPI+pkzku6lHtYVEBngZ+/3pkvv2tMOA==",
+  "dgSpecHash": "h4FpGJrcACupBE36Ttom/8wFgtwRYoBIdnvEwRf2lWxFIQHJNVEV3PCH89u6QnvkrcNFw8XInAHaVfOFeFRcxQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos C#\\CashFlow\\src\\CashFlow.API\\CashFlow.API.csproj",
+  "projectFilePath": "C:\\Users\\theus\\OneDrive\\Área de Trabalho\\Projetos Web\\CashFlow-Docker\\CashFlow\\src\\CashFlow.API\\CashFlow.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\theus\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\theus\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
